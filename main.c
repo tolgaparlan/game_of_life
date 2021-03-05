@@ -34,11 +34,10 @@ int main(int argc, char *argv[]) {
         canvasesSwitch(&currentCanvas, &futureCanvas);
 
         // Display Logic
-        if(usleep(200000) == -1){
+        if(usleep(200000) == -1 || system("clear") != 0){
             fprintf(stderr, "Display has failed.\n");
             exit(1);
         }
-        system("clear");
     }
 
     printf("Terminating...\n");
