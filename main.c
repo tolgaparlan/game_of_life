@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include "canvas.h"
 
 int main(int argc, char *argv[]) {
@@ -31,6 +32,13 @@ int main(int argc, char *argv[]) {
         }
 
         canvasesSwitch(&currentCanvas, &futureCanvas);
+
+        // Display Logic
+        if(usleep(200000) == -1){
+            fprintf(stderr, "Display has failed.\n");
+            exit(1);
+        }
+        system("clear");
     }
 
     printf("Terminating...\n");
