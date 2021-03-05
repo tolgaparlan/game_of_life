@@ -104,6 +104,8 @@ int canvasIterate(uint8_t **currentCanvas, uint8_t **futureCanvas, size_t rows, 
             } else { // dead
                 futureCanvas[i][j] = c == 3;
             }
+
+            if(futureCanvas[i][j] != currentCanvas[i][j]) changed = 1;
         }
     }
 

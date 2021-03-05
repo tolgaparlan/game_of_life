@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
     // Iterate until no more changes happen
     while (1) {
         canvasDisplay(currentCanvas, rows, columns);
-        if (canvasIterate(currentCanvas, futureCanvas, rows, columns) == 1) {
+        if (canvasIterate(currentCanvas, futureCanvas, rows, columns) == 0) {
             break;
         }
 
