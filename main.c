@@ -5,12 +5,11 @@
 
 int main(int argc, char *argv[]) {
     char *seedFilename;
-
     size_t rows, columns;
-    uint8_t **canvas1 = NULL;
-    uint8_t **canvas2 = NULL;
-    uint8_t **currentCanvas = NULL;
-    uint8_t **futureCanvas = NULL;
+    Canvas canvas1 = NULL;
+    Canvas canvas2 = NULL;
+    Canvas currentCanvas = NULL;
+    Canvas futureCanvas = NULL;
 
     // Validate and parse the args
     if (argc != 2) {
@@ -19,6 +18,7 @@ int main(int argc, char *argv[]) {
     }
     seedFilename = argv[1];
 
+    // Initialize program logic
     canvasInit(seedFilename, &canvas1, &rows, &columns);
     emptyCanvas(&canvas2, rows, columns);
     currentCanvas = canvas1;

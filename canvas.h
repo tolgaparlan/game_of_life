@@ -1,16 +1,18 @@
 #ifndef GAME_OF_LIFE_CANVAS_H
 #define GAME_OF_LIFE_CANVAS_H
 
-void canvasDisplay(uint8_t **canvas, size_t rows, size_t columns);
+typedef uint8_t** Canvas;
 
-void canvasFree(uint8_t **canvas, size_t rows);
+void canvasDisplay(Canvas canvas, size_t rows, size_t columns);
 
-void canvasInit(char *seedFilename, uint8_t ***canvas, size_t *rows, size_t *columns);
+void canvasFree(Canvas canvas, size_t rows);
 
-int canvasIterate(uint8_t **currentCanvas, uint8_t **futureCanvas, size_t rows, size_t columns);
+void canvasInit(char *seedFilename, Canvas *canvas, size_t *rows, size_t *columns);
 
-void emptyCanvas(uint8_t ***canvas, size_t rows, size_t columns);
+int canvasIterate(Canvas currentCanvas, Canvas futureCanvas, size_t rows, size_t columns);
 
-void canvasesSwitch(uint8_t ***currentCanvas, uint8_t ***futureCanvas);
+void emptyCanvas(Canvas *canvas, size_t rows, size_t columns);
+
+void canvasesSwitch(Canvas *currentCanvas, Canvas *futureCanvas);
 
 #endif //GAME_OF_LIFE_CANVAS_H
